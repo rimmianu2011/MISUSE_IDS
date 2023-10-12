@@ -12,7 +12,7 @@ import pandas as pd
 import joblib
 
 
-# Reads the data using panda into a DataFrame
+# Reads the CSV data using panda into a DataFrame
 df = pd.read_csv('combined_data.csv')
 
 # Extract features into 'X' and labels into 'y'.
@@ -25,7 +25,6 @@ X = df.drop(columns=['attack'])
 # This part splits the data into training and testing sets
 X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.3, random_state=42)
 X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.5, random_state=42)
-
 
 # For misuse-based IDS the Random Forest Classifier model is used.
 rf_classifier = RandomForestClassifier(n_estimators=1, random_state=1)
