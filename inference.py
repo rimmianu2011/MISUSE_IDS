@@ -1,3 +1,10 @@
+"""
+Project 1 (Misuse-based IDS)
+Group : 3
+File_name : inference.py 
+@authors : Eshaan Deshpande, Venkat Anurag Nandigala, Anushka Yadav
+"""
+
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report
@@ -11,8 +18,6 @@ df = pd.read_csv('Processed_data/reneg.csv')
 X = df.drop(columns=['attack'])  # Drop the 'class_name' column to get features
 
 X_test = X.iloc[9414].to_numpy()
-
-import joblib
 
 # Load the trained Random Forest model from the saved file
 loaded_model = joblib.load('random_forest_model.pkl')
